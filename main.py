@@ -1,16 +1,17 @@
-# This is a sample Python script.
-
-# Press Umschalt+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import RPi.GPIO as GPIO
+import time
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Strg+F8 to toggle the breakpoint.
+def main():
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(13, GPIO.IN)
+    while True:
+        if GPIO.input(13) == 0:
+            print("0")
+        else:
+            print("1")
+        time.sleep(3)
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    main()
